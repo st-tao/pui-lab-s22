@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CMU Course Selection</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Source+Sans+Pro:wght@300;400;700&display=swap" 
+      rel="stylesheet">
+    
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="elements/calendar.css">
+    <link rel="stylesheet" href="elements/degree_progress.css">
+
+    <link rel="stylesheet" href="class-details.css">
+
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="course_database.html">Register</a></li>
+        <li><a href="course_plan.html">Plan</a></li>
+        <li>
+          <button id="nav-pfp">
+          <img 
+              src="assets/cmu-scotty-head-scarf.png"
+              height="60.00rem"
+              width="44.67rem"
+          >
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <h1>05-430: Programming Usable Interfaces</h1>
+    <div class="row">
+      <div class="column left">
+        <h2>Semester: <button class="semester-select">Spring 2022 (current)</button></h2>
+        <h3>Description:</h3>
+          <p>
+            This course is combines lecture, and an intensive programming lab and design studio. 
+            It is for those who want to express their interactive ideas in working prototypes. It 
+            will cover the importance of human-computer interaction/interface design, iterative 
+            design, input/output techniques, how to design and evaluate interfaces, and research 
+            topics that will impact user interfaces in the future. In lab, you will learn how to 
+            design and program effective graphical user interfaces, and how to perform user tests. 
+            We will cover a number of prototyping tools and require prototypes to be constructed 
+            in each, ranging from animated mock-ups to fully functional programs. Assignments will 
+            require implementing UIs, testing that interface with users, and then modifying the 
+            interface based on findings. Some class sessions will feature design reviews of student 
+            work.
+          </p>
+          <div id="sections-offered">
+            <h2>Sections (Offered Spring 2022)</h2>
+            <p>Lecture 1: Hudson, NSH 1305, MW 8:35AM - 9:55AM</p>
+            <input type="radio" name="radio-sections" id="section-A">
+                <label for="section-A">Section A: Hudson, PH 226A, 10:10AM - 11:30AM</label>
+                <br>
+            <input type="radio" name="radio-sections" id="section-B">
+                <label for="section-B">Section B: Hudson, WEH 5415, 10:10AM - 11:30AM</label>
+                <br>
+            <button class="inactive">Add 05-430 to class schedule</button>
+          </div>
+      </div>
+      <div class="column right">
+        <div id="schedule-header">
+          <div class="left-text"><h3>Units: 48</h3></div>
+          <div class="center-text"><h2>Schedule: <button class="semester-select">S22 (Official)</button></h2></div>
+          <div class="right-text"><h3>FCE: 36.5</h3></div>
+        </div>
+        <div class="calendar">
+          <div class="day M"><p>Mon</p></div>
+          <div class="day Tu"><p>Tues</p></div>
+          <div class="day W"><p>Wed</p></div>
+          <div class="day Th"><p>Thurs</p></div>
+          <div class="day F"><p>Fri</p></div>
+
+          <div class="time t8am"><p>8am</p></div>
+          <div class="time t10am"><p>10am</p></div>
+          <div class="time t12pm"><p>12pm</p></div>
+          <div class="time t2pm"><p>2pm</p></div>
+          <div class="time t4pm"><p>4pm</p></div>
+
+          <div class="CMUclass M05-430L"><p>05-430: Lecture</p></div>
+          <div class="CMUclass M05-430R"><p>05-430: Lab</p></div>
+          <div class="CMUclass W05-430L"><p>05-430: Lecture</p></div>
+          <div class="CMUclass M70-257L"><p>70-257: Lecture</p></div>
+          <div class="CMUclass W70-257L"><p>70-257: Lecture</p></div>
+          <div class="CMUclass F70-257R"><p>70-257: Recitation</p></div>
+          <div class="CMUclass Tu70-311L"><p>70-311: Lecture</p></div>
+          <div class="CMUclass Th70-311L"><p>70-311: Lecture</p></div>
+          <div class="CMUclass M73-103L"><p>73-103: Lecture</p></div>
+          <div class="CMUclass W73-103L"><p>73-103: Lecture</p></div>
+          <div class="CMUclass W05-589L"><p>05-589: Advisor Meeting</p></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

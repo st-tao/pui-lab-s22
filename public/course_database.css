@@ -1,0 +1,44 @@
+#plan-filters-title {
+    margin: 1rem 0rem 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+#plan-filters {
+    width: 100%;
+    background-color: var(--cmu-red);
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+#button-filters {
+    display: inline;
+    color: white;
+    background-color: var(--steel-gray);
+    width: 1rem;
+}
+
+.scrollable-x {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+#plan-filters > button[aria-selected="true"] {
+    color: white;
+    background-color: var(--sky-blue);
+}
+
+#plan-filters > button[aria-selected="false"] {
+    color: black;
+    background-color: white;
+}
+
+#plan-filters > button > p {
+    padding: 1rem;
+}
+
+input {
+    width: 80%;
+    padding: 0.5rem;
+    margin: 1rem 0rem;
+}

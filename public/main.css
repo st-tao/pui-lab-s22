@@ -1,0 +1,188 @@
+/* :root == html for html documents */
+:root {
+    /* Color Swatch  */
+    --cmu-red: #B52B36;
+    --steel-gray: #BCBDC0;
+    --iron-gray: #6E6F71;
+    --scots-rose: #DC4B4E;
+    --gold-thread: #F2B743;
+    --green-thread: #429350;
+    --teal-thread: #3E8D8F;
+    --blue-thread: #14356E;
+    --sky-blue: #3C8AB9;
+    --tan: #BBB49F;
+    --beige: #E2DAC5;
+    --hornbostel-teal: #2B4C4D;
+    --palladian-green: #7B9E94;
+    --weaver-blue: #1C2C4A;
+    --skibo-red: #872125;
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 3rem;
+  margin: 0.25rem;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+}
+
+p, li {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+/* Navigation Bar */
+
+nav {
+  background-color: var(--beige);
+  padding: 0.25rem;
+}
+
+nav ul {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%; 
+}
+
+nav ul a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 0.25rem;
+  text-decoration: none;
+  color: black;
+  /* text-align: center; */
+}
+
+nav a:visited {
+  color: black;
+}
+
+.left {
+  width: 50%;
+  display: inline-block;
+}
+
+.right {
+  width: 50%;
+  display: inline-block;
+}
+
+nav > div {
+  display: inline;
+  width: fit-content;
+}
+
+#nav-pfp {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Buttons */
+button {
+  border: none;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin: 0rem 0.2rem;
+  border-radius: 0.5rem;
+  background-color: #FFFFFF;
+}
+
+button.semester-select {
+  color: white;
+  background-color: var(--cmu-red);
+}
+
+button.plan-select {
+  color: white;
+  background-color: var(--sky-blue);
+}
+
+button#filters {
+  color: white;
+  background-color: var(--cmu-red);
+}
+
+button.inactive {
+  color: var(--iron-gray);
+  background-color: var(--steel-gray);
+}
+
+/* Tab buttons */
+#tabs {
+  width: 100%;
+}
+
+.tab-button {
+  padding: 1rem 10%;
+  margin: 0rem;
+  margin-top: 1rem;
+  display:inline;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.tab-button[aria-selected="true"]{
+  border: 0.1rem solid black;
+  position: relative;
+  top: 0.2rem;
+  border-bottom: 0rem;
+}
+
+.tab-button[aria-selected="false"]{
+  border: 0.1rem solid black;
+  position: relative;
+  top: 0.1rem;
+}
+
+.tab[aria-selected="true"]{
+  display: block;
+  border: 0.1rem solid black;
+}
+
+.tab[aria-selected="false"]{
+  display: none;
+}

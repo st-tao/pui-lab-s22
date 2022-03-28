@@ -1,0 +1,169 @@
+#schedule-header {
+    display:flex; 
+    flex-flow:row wrap;
+    /* width: 100%; */
+    clear: both;
+    padding: 0rem 1rem;
+}
+
+.left-text {
+    text-align: left;
+    width: 33.33333%;
+    /* float: left; */
+  }
+  
+.center-text {
+    text-align: center;
+    width: 33.33333%;
+    /* float: center; */
+}
+
+.right-text {
+    text-align: right;
+    width: 33.33333%;
+    /* float: right; */
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    grid-auto-rows: 3rem;
+}
+
+.time {
+    background-color: none;
+    text-align: right;
+    padding: 0 1rem 0 1rem;
+}
+
+.t8am {
+    grid-column: 1;
+    grid-row: 1;   
+}
+
+.t10am {
+    grid-column: 1;
+    grid-row: 5;   
+}
+
+.t12pm {
+    grid-column: 1;
+    grid-row: 9;   
+}
+
+.t2pm {
+    grid-column: 1;
+    grid-row: 13;   
+}
+
+.t4pm {
+    grid-column: 1;
+    grid-row: 17;   
+}
+
+.day {
+    text-align: center;
+       
+}
+
+.M {
+    grid-column: 2;
+    grid-row: 1 / 21;
+    background-color: var(--steel-gray);
+}
+
+.Tu {
+    grid-column: 3;
+    grid-row: 1 / 21;
+    background-color: #FFFFFF;
+}
+
+.W {
+    grid-column: 4;
+    grid-row: 1 / 21;
+    background-color: var(--steel-gray);
+}
+
+.Th {
+    grid-column: 5;
+    grid-row: 1 / 21;
+    background-color: #FFFFFF;
+}
+
+.F {
+    grid-column: 6;
+    grid-row: 1 / 21;
+    background-color: var(--steel-gray);
+}
+
+.M05-430L {
+    grid-column: 2;
+    grid-row: 2 / 5;
+    background-color: var(--scots-rose);
+}
+
+.M05-430R {
+    grid-column: 2;
+    grid-row: 5 / 8;
+    background-color: var(--scots-rose);
+}
+
+.W05-430L {
+    grid-column: 4;
+    grid-row: 2 / 5;
+    background-color: var(--scots-rose);
+}
+
+.M70-257L {
+    grid-column: 2;
+    grid-row: 9 / 11;
+    background-color: var(--teal-thread);
+}
+
+.W70-257L {
+    grid-column: 4;
+    grid-row: 9 / 11;
+    background-color: var(--teal-thread);
+}
+
+.F70-257R {
+    grid-column: 6;
+    grid-row: 10;
+    background-color: var(--teal-thread);
+}
+
+.M73-103L {
+    grid-column: 2;
+    grid-row: 12 / 14;
+    background-color: var(--gold-thread);
+}
+
+.W73-103L {
+    grid-column: 4;
+    grid-row: 12 / 14;
+    background-color: var(--gold-thread);
+}
+
+.Tu70-311L {
+    grid-column: 3;
+    grid-row: 15 / 18;
+    background-color: var(--green-thread);
+}
+
+.Th70-311L {
+    grid-column: 5;
+    grid-row: 15/ 18;
+    background-color: var(--green-thread);
+}
+
+.W05-589L {
+    grid-column: 4;
+    grid-row: 19;
+    background-color: var(--sky-blue);
+}
+
+.CMUclass {
+    border-radius: 1rem;
+    padding: 0 0.5rem 0 0.5rem;
+}

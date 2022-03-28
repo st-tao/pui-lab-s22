@@ -1,0 +1,12 @@
+#sections-offered {
+    color: white;
+    background-color: var(--cmu-red);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+#sections-offered label {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}

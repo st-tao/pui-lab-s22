@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="elements/calendar.css">
     <link rel="stylesheet" href="elements/degree_progress.css">
+    <link rel="stylesheet" href="elements/search_result_cards.css">
 
-    <link rel="stylesheet" href="index.css">
-
+    <link rel="stylesheet" href="course_database.css">
+    
   </head>
   <body>
     <nav>
@@ -26,95 +27,115 @@
         <li><a href="course_plan.html">Plan</a></li>
         <li>
           <button id="nav-pfp">
-            <img 
+          <img 
               src="assets/cmu-scotty-head-scarf.png"
               height="60.00rem"
               width="44.67rem"
-            >
+          >
           </button>
         </li>
       </ul>
     </nav>
-    <h1>Welcome Back, Stephen!</h1>
+    <h1>Registration: Course Database</h1>
     <div class="row">
-      <!-- Left side: Page-specific content -->
       <div class="column left">
         <h2>Semester: <button class="semester-select">Spring 2022 (current)</button></h2>
-        <div id="add-class">
-          <img 
-            src="assets/add-button.png"
-            height="50rem"
-            width="50rem"
-          >
+        <!-- Planned schedules filter row -->
+        <p id="plan-filters-title">Planned Schedules: (select)</p>
+        <div id="plan-filters" class="scrollable-x">
+          <button aria-selected="false">Plan 1</button>
+          <button aria-selected="false">Plan 2</button>
+          <button aria-selected="false">Plan 3</button>
+          <button aria-selected="false">Plan 4</button>
         </div>
-        <div id="schedule-body">
-          <table>
-            <tr aria-selected="true">
-              <td>05-430: Programming Usable Interfaces</td>
-              <td>15 units (FCE: 10.4)</td>
-            </tr>
-            <tr aria-selected="false">            
-              <td>05-589: Independent Study in HCI</td>
-              <td>6 units</td>
-            </tr>
-            <tr aria-selected="false">
-              <td>70-257: Optimization for Business</td>
-              <td>9 units (FCE: 6.4)</td>
-            </tr>
-            <tr aria-selected="false">
-              <td>70-311: Organizational Behavior</td>
-              <td>9 units (FCE:6.9) </td>
-            </tr>
-            <tr aria-selected="false">
-              <td>73-103: Principles of Macroeconomics</td>
-              <td>9 units (FCE: 6.8)</td>
-            </tr>
-          </table>
-        </div>
-        <div id="class-info">
-          <h2>Current Class Selected:<br>Programming Usable Interfaces</h2>
-          <div>
-            <p>Units:15 units</p>
-            <p>FCE: 10.4</p>
+
+        <input type="text" placeholder="Search classes..."><button id="filters">Filters</button>
+
+        <div id="class-results">
+          <div class="search-result">
+            <div class="result-description">
+              <p>05-430 Programming Usable Interfaces</p>
+              <p>Units: 15 units (FCE: 10.4)</p>
+              <p>Fulfills: HCI Core Class</p>
+            </div>
+            <div class="result-tags">
+              <button class="plan">Plan 1</button>
+              <button class="star">&starf;</button>
+              <button class="check">&check;</button>
+              <button class="heart">&hearts;</button>
+            </div>
+            <div class="result-buttons">
+              <button onclick="location.href='class_details_PUI.html'" type="button"">More Info</button>
+            </div>
           </div>
-          <table>
-            <tr>
-              <td>
-                <p>
-                  Lecture Section: 1<br>
-                  Professor: Scott Hudson<br>
-                  Location: NSH 1305<br>
-                  Times: M W 8:35am - 9:55am<br>
-                </p>
-              </td>
-              <td>
-                <p>
-                  Recitation Section: A<br>
-                  Professor: Scott Hudson<br>
-                  Location: PH 226A<br>
-                  Times: M 10:10am - 11:30am<br>
-                </p>
-              </td>
-            </tr>
-          </table>
-          <div>
-            <button>
-              <p>
-                See Grades
-              </p>
-            </button>
-            <button>
-              <p>
-                Change Section
-              </p>
-            </button>
-            <button>
-              <p>
-                Drop Class
-              </p>
-            </button>
+
+          <div class="search-result">
+            <div class="result-description">
+              <p>70-371 Operations Management</p>
+              <p>Units: 9 units (FCE: 6.4)</p>
+              <p>Fulfills: Business Core Class</p>
+            </div>
+            <div class="result-tags">
+              <button class="plan">Plan 2</button>
+              <button class="star">&starf;</button>
+              <button class="check">&check;</button>
+              <button class="heart">&hearts;</button>
+            </div>
+            <div class="result-buttons">
+              <button>More Info</button>
+            </div>
+          </div>
+
+          <div class="search-result">
+            <div class="result-description">
+              <p>70-340 Business Communications</p>
+              <p>Units: 9 units (FCE: 5.8)</p>
+              <p>Fulfills: Business Core Class</p>
+            </div>
+            <div class="result-tags">
+              <button class="plan">Plan 2</button>
+              <button class="star">&starf;</button>
+              <button class="check">&check;</button>
+              <button class="heart">&hearts;</button>
+            </div>
+            <div class="result-buttons">
+              <button>More Info</button>
+            </div>
+          </div>
+
+          <div class="search-result">
+            <div class="result-description">
+              <p>70-391 Finance</p>
+              <p>Units: 9 units (FCE: 10.1)</p>
+              <p>Fulfills: Business Core Class</p>
+            </div>
+            <div class="result-tags">
+              <button class="plan">Plan 1</button>
+              <button class="star">&starf;</button>
+              <button class="check">&check;</button>
+            </div>
+            <div class="result-buttons">
+              <button>More Info</button>
+            </div>
+          </div>
+
+          <div class="search-result">
+            <div class="result-description">
+              <p>05-499 HCI for Startups</p>
+              <p>Units: 12 units (FCE: 7.2)</p>
+              <p>Fulfills: HCI Elective Class</p>
+            </div>
+            <div class="result-tags">
+              <button class="plan">Plan 2</button>
+              <button class="star">&starf;</button>
+              <button class="check">&check;</button>
+            </div>
+            <div class="result-buttons">
+              <button>More Info</button>
+            </div>
           </div>
         </div>
+
       </div>
 
       <!-- Right side: calendar-degree plan duo -->
