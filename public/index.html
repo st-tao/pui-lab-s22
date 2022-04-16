@@ -21,15 +21,16 @@
   <body>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="course_database.html">Register</a></li>
-        <li><a href="course_plan.html">Plan</a></li>
+        <li><a href="index.html" aria-selected="true">Home</a></li>
+        <li><a href="course_database.html" aria-selected="false">Register</a></li>
+        <li><a href="course_plan.html" aria-selected="false">Plan</a></li>
         <li>
           <button id="nav-pfp">
             <img 
               src="assets/cmu-scotty-head-scarf.png"
-              height="60.00rem"
-              width="44.67rem"
+              height="60"
+              width="45"
+              alt="profile picture"
             >
           </button>
         </li>
@@ -43,8 +44,9 @@
         <div id="add-class">
           <img 
             src="assets/add-button.png"
-            height="50rem"
-            width="50rem"
+            height="50"
+            width="50"
+            alt="add class button"
           >
         </div>
         <div id="schedule-body">
@@ -98,21 +100,9 @@
             </tr>
           </table>
           <div>
-            <button>
-              <p>
-                See Grades
-              </p>
-            </button>
-            <button>
-              <p>
-                Change Section
-              </p>
-            </button>
-            <button>
-              <p>
-                Drop Class
-              </p>
-            </button>
+            <button>See Grades</button>
+            <button>Change Section</button>
+            <button>Drop Class</button>
           </div>
         </div>
       </div>
@@ -120,15 +110,25 @@
       <!-- Right side: calendar-degree plan duo -->
       <div class="column right">
         <!-- Tab links -->
-        <div id="tabs">
-          <button class="tab-button" aria-selected="true">Schedule</button>
-          <button class="tab-button" aria-selected="false">Degree Progress</button>
+        <div id="tabs" role="tablist" aria-label="Sample Tabs">
+          <button type="button" 
+            role="tab" aria-selected="true" tabindex="0"
+            aria-controls="schedule-tab" id="tab-1">
+              Schedule
+          </button>
+          <button type="button" 
+            role="tab" aria-selected="false" tabindex="-1"
+            aria-controls="degree-progress-tab" id="tab-2">
+              Degree Progress
+          </button>
         </div>
+
         <!-- Tabs -->
-        <div id="schedule-tab" class="tab" aria-selected="true">
+        <div id="schedule-tab" role="tabpanel" 
+          aria-selected="true" tabindex="0" aria-labelledby="scheduling">
           <div id="schedule-header">
             <div class="left-text"><h3>Units: 48</h3></div>
-            <div class="center-text"><h2>Schedule: <button>S22 (Official)</button></h2></div>
+            <div class="center-text"><h2>Schedule: <button class="semester-select">S22 (Official)</button></h2></div>
             <div class="right-text"><h3>FCE: 36.5</h3></div>
           </div>
           <div class="calendar">
@@ -158,7 +158,8 @@
           </div>
         </div>
     
-        <div id="degree-progress-tab" class="tab" aria-selected="false">
+        <div id="degree-progress-tab" role="tabpanel" 
+          aria-selected="false" tabindex="-1" aria-labelledby="degree progress">
           <div id="degree-progress">
             <h1>Overall Degree Progress</h1>
             <div class="requirement-section">

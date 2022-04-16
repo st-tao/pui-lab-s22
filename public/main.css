@@ -18,6 +18,10 @@
     --skibo-red: #872125;
 }
 
+a, button:enabled {
+  cursor: pointer;
+}
+
 h1 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
@@ -59,6 +63,7 @@ p, li {
 nav {
   background-color: var(--beige);
   padding: 0.25rem;
+  margin: -0.5rem;
 }
 
 nav ul {
@@ -82,8 +87,10 @@ nav ul a {
   /* text-align: center; */
 }
 
-nav a:visited {
-  color: black;
+nav a:hover {
+  background-color: var(--tan);
+  font-weight: 500;
+  /* color: white; */
 }
 
 .left {
@@ -147,7 +154,7 @@ button#filters {
   background-color: var(--cmu-red);
 }
 
-button.inactive {
+button[disabled] {
   color: var(--iron-gray);
   background-color: var(--steel-gray);
 }
@@ -157,7 +164,7 @@ button.inactive {
   width: 100%;
 }
 
-.tab-button {
+#tabs button {
   padding: 1rem 10%;
   margin: 0rem;
   margin-top: 1rem;
@@ -165,24 +172,58 @@ button.inactive {
   border-radius: 1rem 1rem 0 0;
 }
 
-.tab-button[aria-selected="true"]{
+#tabs button[aria-selected="true"]{
   border: 0.1rem solid black;
   position: relative;
   top: 0.2rem;
   border-bottom: 0rem;
 }
 
-.tab-button[aria-selected="false"]{
+#tabs button[aria-selected="false"]{
   border: 0.1rem solid black;
   position: relative;
   top: 0.1rem;
 }
 
-.tab[aria-selected="true"]{
+#tabs button:nth-child(2){
+  color: white;
+  background-color: var(--cmu-red);
+}
+
+#tabs button:nth-child(1), #tab-2-search {
+  color: black;
+  background-color: white;
+}
+
+/* Tab content */
+div[tabindex="0"]{
   display: block;
   border: 0.1rem solid black;
 }
 
-.tab[aria-selected="false"]{
+div[tabindex="-1"]{
   display: none;
+}
+
+/* For logistics */
+#schedule-body, #planning-tab {
+  background-color: var(--cmu-red);
+  padding: 1rem;
+  margin: 1rem;
+}
+
+#schedule-body table, #planning-tab table {
+  width: 100%;
+}
+
+#schedule-body td, #planning-tab td {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  background-color: #FFFFFF;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+}
+
+#schedule-body tr[aria-selected="true"] td, #planning-tab tr[aria-selected="true"] td {
+  background-color: var(--tan);
 }

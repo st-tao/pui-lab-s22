@@ -10,3 +10,11 @@
     font-weight: 400;
     font-size: 1rem;
 }
+
+form button[type="submit"] {
+    margin: 1rem 1rem 0.1rem;
+}
+
+#breadcrumb-title {
+    text-align: center;
+}

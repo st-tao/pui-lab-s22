@@ -37,7 +37,7 @@
     padding: 1rem;
 }
 
-input {
+input[type="text"] {
     width: 80%;
     padding: 0.5rem;
     margin: 1rem 0rem;

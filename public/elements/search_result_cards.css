@@ -1,11 +1,14 @@
 .search-result {
-    display: grid;
-    grid-template-rows:repeat(2,1fr);
-    grid-template-columns:repeat(2,1fr);
+    background-color: var(--cmu-red);
     padding: 0.5rem;
     margin: 1rem 0rem;
     border-radius: 0.25rem;
-    background-color: var(--cmu-red);
+}
+
+.search-result summary {
+    display: grid;
+    grid-template-rows:repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
 }
 
 .result-description {
@@ -17,6 +20,13 @@
 .result-description > p {
     margin: 0.1rem 0.25rem;
     color: white;
+}
+
+.result-sections {
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
 }
 
 .result-tags {
@@ -33,22 +43,26 @@
     padding: 0.5rem 0rem;
 }
 
-button.plan {
-    color: white;
-    background-color: var(--sky-blue);
+.result-buttons > button, .result-tags > button {
+    margin: 0.125rem 0rem;
 }
 
-button.heart {
+.result-tags > button {
     color: white;
+}
+
+button[title="plan"] { 
+    background-color: var(--sky-blue); 
+}
+
+button[title="heart"] {
     background-color: var(--scots-rose);
 }
 
-button.check {
-    color: white;
+button[title="check"] {
     background-color: var(--green-thread);
 }
 
-button.star {
-    color: white;
+button[title="star"] {
     background-color: var(--gold-thread);
 }

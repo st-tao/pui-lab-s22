@@ -1,26 +1,4 @@
 /* Current Schedule (Upper block) */
-#schedule-body {
-    background-color: var(--cmu-red);
-    padding: 1rem;
-    margin: 1rem;
-}
-
-#schedule-body table {
-    width: 100%;
-}
-
-#schedule-body td {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    background-color: #FFFFFF;
-    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
-}
-
-#schedule-body tr[aria-selected="true"] td {
-    background-color: var(--tan);
-}
-
 #add-class {
     text-align: right;
 }
