@@ -9,6 +9,10 @@
     top: 3rem;
 }
 
+#add-class-button:hover {
+    cursor: pointer;
+}
+
 /* Class Info (lower block) */
 #class-info {
     background-color: var(--tan);
