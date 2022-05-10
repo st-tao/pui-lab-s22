@@ -131,12 +131,8 @@ classes.c70257 = new Class('70257', "Optimization For Business", 9, 6.4,
     },
 );
 
-console.log("test")
-console.log(classes.c05430)
-
 const infoButtons = document.getElementsByClassName('info-button');
-console.log(infoButtons);
-console.log(infoButtons.length)
+
 for (i=0; i < infoButtons.length; i++) {
     var currInfoButton = infoButtons[i];
     currInfoButton.addEventListener('click', function(event) {
@@ -147,4 +143,3 @@ for (i=0; i < infoButtons.length; i++) {
         location.href = 'class_details.html';
     });
 }
-console.log("Done")

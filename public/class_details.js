@@ -2,18 +2,12 @@ function formatUnits(units, fce) {
     return units + " units (FCE: " + fce + ")";
 }
 
-console.log("Running class_details.js")
-
 function AddCourse(course) {
     // add chosen section to course attributes
-    console.log("localStorage.getItem('selected-section-value')")
-    console.log(localStorage.getItem('selected-section-value'));
     course.section = localStorage.getItem('selected-section-value');
 
     var userClassesList = JSON.parse(localStorage.getItem('classes'));
-    // if classes jave been added, add to list
-    console.log("userClassesList");
-    console.log(userClassesList);
+    // if classes have been added, add to list
 
     // turn userClassesList into obj if not an object already
     if (userClassesList == null) {
@@ -21,8 +15,7 @@ function AddCourse(course) {
     }
     // add new class to userClassesList
     userClassesList["c" + course.number] = JSON.stringify(course);
-    console.log("userClassesList:");
-    console.log(userClassesList);
+
     // update classes
     localStorage.setItem("classes", JSON.stringify(userClassesList));
 }
@@ -30,8 +23,6 @@ function AddCourse(course) {
 // get course
 
 const course = JSON.parse(localStorage.getItem('selected-class'));
-console.log('course')
-console.log(course);
 
 // add data to webpage
 document.getElementById('course-title').innerHTML += course.courseName;
@@ -64,8 +55,6 @@ var submitText = document.createTextNode("Select Section to Add Course");
 const currClasses = JSON.parse(localStorage.getItem('classes'));
 for (i=0; i < Object.keys(course.lectures).length; i++) {
     var lectureName = Object.keys(course.lectures)[i];
-    console.log("Lecture Name:");
-    console.log(lectureName)
     // create lecture header part
     var lecture = course.lectures[lectureName];
 
@@ -78,14 +67,10 @@ for (i=0; i < Object.keys(course.lectures).length; i++) {
         p.appendChild(pText);
         courseSections.appendChild(p);
 
-        console.log('Object.keys(course.sections)');
-        console.log(Object.keys(course.sections))
         // iterate through "sections" Object's keys
         for (j=0; j < Object.keys(course.sections).length; j++) {
             var sectionName = Object.keys(course.sections)[j];
             // check if section number is the same as the lecture number
-            console.log("sectionName")
-            console.log(sectionName)
             var sectionNum = sectionName.split("")[1];
             var lectureNum = lectureName.split("")[1];
             if (sectionNum != lectureNum) { continue; }
@@ -171,8 +156,6 @@ form.addEventListener('click', function(event) {
 
         // same if code as above
         submitButton.innerHTML = "add " + course.number + " " + event.target.id.replace("section","") + " to your schedule";
-        console.log("event.target.value");
-        console.log(event.target.value);
         localStorage.setItem("selected-section-value", event.target.value);
     }
 })

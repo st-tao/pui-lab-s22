@@ -1,0 +1,6 @@
+Bonus/Extra Work
+In order to implement this particular localStorage system, this required a lot of parsing and stringify to store class objects in localStorage. 
+
+The home page class table row highlights also required looping through table entries and adding onclick code to them (and similarly the database page with all of the classes and the “more info” buttons). The help box on the homepage adapts dynamically to the content being selected; it starts with some help text and becomes more useful when selected. It also uses string management to use the data kept in local storage to figure out the lecture (and recitation section, if applicable) and display the data in the help box accordingly. 
+
+The class information page itself is designed to disable buttons and add a parent onclick() code to the form that checks for the event target to activate the submit button when an option is selected. I also have it so the page adapts to the content being provided; for example, a class with no recitation options is formatted slightly differently from a class with recitation options. In fact, the formatting of the html (i.e. the input radio buttons, the text, etc.) is all filled in and created through javaScript. In addition, the page checks to see if the user is already registered for the course and pre-highlights a section.

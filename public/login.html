@@ -26,14 +26,18 @@
       <img class="center" src="assets/CMU-photo-1.jpeg" alt="CMU students" width="600" height="400">
       <h2>Welcome! Please type in your username and password to login.</h2>
       <form>
+        <label for="user-name">Name: </label>
+        <input id="user-name" type="text" name="user-name">
+        <br>
         <label for="user-email">Email: </label>
         <input id="user-email" type="email" name="user-email">
         <br>
         <label for="user-pwd">Password: </label>
         <input id="user-pwd" type="password" name="user-pwd">
         <br>
-        <input type="submit" value="submit">
+        <input id="login-submit" type="button" value="submit">
       </form>
     </div>
+    <script src="login.js"></script>
   </body>
 </html>

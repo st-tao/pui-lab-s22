@@ -1,10 +1,15 @@
 // Get/initialize name
 if (localStorage.getItem('userName') == null) {
-    let userNameInput = prompt("Please enter your name:", "Stephen");
-    localStorage.setItem('userName', userNameInput);
-    alert("Thanks "+userNameInput+"!");
-    localStorage.setItem('userClasses', null);
+    alert("Please login first!")
+    location.href = "login.html";
+
+    // let userNameInput = prompt("Please enter your name:", "Stephen");
+    // localStorage.setItem('userName', userNameInput);
+    // alert("Thanks "+userNameInput+"!");
+    // localStorage.setItem('userClasses', null);
 }
+
+document.getElementById("welcome").innerHTML += localStorage.getItem('userName') + "!";
 
 // Get the user's classes
 var userClasses = localStorage.getItem('classes');
@@ -16,9 +21,7 @@ if (userClasses != null) {
 // updateHelpBox
 function updateHelpBox(name) {
     const courseId = "c" + name.split(":")[0];
-    console.log(courseId)
     // get user's classes
-    console.log(JSON.parse(JSON.parse(localStorage.getItem("classes"))[courseId]))
     var course = JSON.parse(JSON.parse(localStorage.getItem("classes"))[courseId]);
 
     // populate help box
@@ -42,13 +45,11 @@ function updateHelpBox(name) {
     classInfo.appendChild(div);
 
     // get lecture info
-    console.log(course.section.split(""))
     if (course.section.split("").length == 1) {
         lectureNum = course.section.split("")[0];
     } else {
         var lectureNum = course.section.split("")[0] + course.section.split("")[1];
     }
-    console.log(lectureNum)
     var lectureInfo = course.lectures[lectureNum];
 
     // create cells for table (lecture)
@@ -128,8 +129,6 @@ if (userClasses != null) {
         // Get class
         var classObjJSON = userClasses[userClassesKey];
         var classObj = JSON.parse(classObjJSON);
-        console.log("classObj:");
-        console.log(classObj);
     
         // Create row + 2 cells for class entry
         var newRow = scheduleTable.insertRow(-1);
@@ -138,7 +137,6 @@ if (userClasses != null) {
     
         // give row click highlighting
         newRow.onclick = function(event) {
-            console.log(event.target.parentElement);
             // clear selection of anything on the table
             for (const row of scheduleTable.rows) {
                 row.setAttribute("aria-selected", "false");
@@ -163,33 +161,5 @@ if (userClasses != null) {
 
 // index.js: Buttons
 document.getElementById('add-class-button').onclick = function() {
-    location.href = "course_database.html"
+    location.href = "course_database.html";
 }
-
-document.getElementById('')
-
-// const createClickHandler = (row) => {
-//     return () => {
-//       const [cell] = row.getElementsByTagName("td");
-//       const id = cell.innerHTML;
-//       console.log(id);
-//     };
-//   };
-  
-// for (const currentRow of scheduleTable.rows) {
-
-//     currentRow.onclick = createClickHandler(currentRow);
-//   }
-
-// scheduleTable.addEventListener('click', function(event) {
-//     for (const row of scheduleTable.rows) {
-//         console.log("event.target:");
-//         console.log(event.target);
-//         console.log(event.target.row)
-//     }
-// })
-// for (const currRow of scheduleTable.rows) {
-//     currRow.addEventListener('click', function(event) {
-
-//     });
-// }
