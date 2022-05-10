@@ -1,190 +1,195 @@
-function Class(number, courseName, units, fce, lectures, sections) {
-    this.number = number;
-    this.courseName = courseName;
-    this.units = units;
-    this.fce = fce;
-    this.lectures = lectures;
-    this.sections = sections;
-}
-
-// Class database Object
-
-const classes = {};
-
-// Add example classes to class obj
-classes.c05430 = Class(05430, "Programming Usable Interfaces", 15, 10.4,
-    {
-        L1: {
-            "professor": "Scott Hudson",
-            "location": "NSH 1305",
-            "time": "MW 08:35AM - 09:55AM"
-        }
-    },
-
-    {
-        A1: {
-            "professor": "Scott Hudson",
-            "location": "PH 226A",
-            "time": "M 10:10AM - 11:30AM",
-        },
-
-        B1: {
-            "professor": "Scott Hudson",
-            "location": "WEH 5415",
-            "time": "M 10:10AM - 11:30AM",
-        },
-    },
-);
-
-classes.c70311 = Class(70311, "Organizational Behavior", 9, 6.9,
-    {
-        A: {
-            "professor": "Hahl",
-            "location": "TEP 3801",
-            "time": "TR 11:50AM - 01:10PM"
-        },
-
-        B: {
-            "professor": "Tomprou",
-            "location": "TEP 2700",
-            "time": "TR 01:25PM - 02:45PM"
-        },
-
-        C: {
-            "professor": "Tomprou",
-            "location": "TEP 2700",
-            "time": "TR 03:05PM - 04:25PM"
-        },
-    },
-    null,
-
-);
-
-classes.c73103 = Class(73103, "Principles of Macroeconomics", 9, 6.8,
-    {
-        L1: {
-            "professor": "Ariel Zetlin-Jones",
-            "location": "CUC McConomy",
-            "time": "MW 12:20PM - 01:10PM"
-        },
-
-        L2: {
-            "professor": "Ariel Zetlin-Jones",
-            "location": "CUC McConomy",
-            "time": "MW 01:25PM - 02:15PM"
-        },
-    },
-    null,
-);
-
-classes.c73103 = Class(73103, "Optimization For Business", 9, 6.4,
-    {
-        L1: {
-            "professor": "Ben Moseley",
-            "location": "TEP 2613",
-            "time": "MW 11:50AM - 01:10PM"
-        },
-
-        L2: {
-            "professor": "Ben Moseley",
-            "location": "TEP 2613",
-            "time": "MW 01:25PM - 02:15PM"
-        },
-    },
-
-    {
-        A1: {
-            "professor": "Ben Moseley",
-            "location": "TEP 2611",
-            "time": "F 12:20PM - 01:10PM",
-        },
-
-        B1: {
-            "professor": "Ben Moseley",
-            "location": "TEP 2702",
-            "time": "F 12:20PM - 01:10PM",
-        },
-
-        C1: {
-            "professor": "Ben Moseley",
-            "location": "TEP 3808",
-            "time": "F 12:20PM - 01:10PM",
-        },
-
-        D2: {
-            "professor": "Ben Moseley",
-            "location": "TEP 2610",
-            "time": "F 01:25PM - 02:15PM",
-        },
-
-        E2: {
-            "professor": "Ben Moseley",
-            "location": "TEP 2701",
-            "time": "F 01:25PM - 02:15PM",
-        },
-
-        F2: {
-            "professor": "Ben Moseley",
-            "location": "TEP 2612",
-            "time": "F 01:25PM - 02:15PM",
-        },
-    },
-);
-
-
 // Get/initialize name
 if (localStorage.getItem('userName') == null) {
     let userNameInput = prompt("Please enter your name:", "Stephen");
     localStorage.setItem('userName', userNameInput);
-    alert("Thanks "+userNameInput+"!")
-    localStorage.setItem('classes', null)
+    alert("Thanks "+userNameInput+"!");
+    localStorage.setItem('userClasses', null);
 }
 
-// Get classes an/or initialize user classes
-if (localStorage.getItem('userClasses') != null) {
-    var userClasses = JSON.parse(localStorage.getItem('userClasses'));
-} else {
-    var userClasses = [];
+// Get the user's classes
+var userClasses = localStorage.getItem('classes');
+
+if (userClasses != null) {
+    userClasses = JSON.parse(userClasses);
 }
 
-var scheduleTable = document.getElementById('schedule-body');
+// updateHelpBox
+function updateHelpBox(name) {
+    const courseId = "c" + name.split(":")[0];
+    console.log(courseId)
+    // get user's classes
+    console.log(JSON.parse(JSON.parse(localStorage.getItem("classes"))[courseId]))
+    var course = JSON.parse(JSON.parse(localStorage.getItem("classes"))[courseId]);
+
+    // populate help box
+    //create elements (title/general)
+    var classInfoH2 = document.createElement('h2');
+    classInfoH2.innerHTML = "Current Class Selected: </br>" + course.courseName;
+    var div = document.createElement('div');
+    var p1 = document.createElement('p');
+    p1.innerHTML = "Units: " + course.units + " units";
+    var p2 = document.createElement('p');
+    p2.innerHTML = "FCE: " + course.fce;
+    var mainTable = document.createElement("table");
+    mainTable.classList.add("center");
+    var newRow = mainTable.insertRow(0);
+    // add class info elements to classInfo
+    var classInfo = document.getElementById("class-info");
+    classInfo.innerHTML = "";
+    classInfo.appendChild(classInfoH2);
+    div.appendChild(p1);
+    div.appendChild(p2);
+    classInfo.appendChild(div);
+
+    // get lecture info
+    console.log(course.section.split(""))
+    if (course.section.split("").length == 1) {
+        lectureNum = course.section.split("")[0];
+    } else {
+        var lectureNum = course.section.split("")[0] + course.section.split("")[1];
+    }
+    console.log(lectureNum)
+    var lectureInfo = course.lectures[lectureNum];
+
+    // create cells for table (lecture)
+    var lectureCell = newRow.insertCell(0);
+    var lectureCellP = document.createElement("p");
+    lectureCellP.innerHTML = 
+        `
+        Lecture Section: ${lectureNum}</br>
+        Professor: ${lectureInfo.professor}</br>
+        Location: ${lectureInfo.location}</br>
+        Times: ${lectureInfo.time}</br>
+        `;
+    // add lecture elements to classInfo
+    lectureCell.appendChild(lectureCellP);
+
+    // create cells for table (recitation, opt.)
+    if (course.section.length >= 4) {
+        // get recitation Info
+        var recitationNum = course.section.split("")[2] + course.section.split("")[3];
+        var recitationInfo = course.sections[recitationNum];
+
+        var recitationCell = newRow.insertCell(1);
+        var recitationCellP = document.createElement("p");
+        recitationCellP.innerHTML = 
+            `
+            Recitation Section: ${recitationNum}</br>
+            Professor: ${recitationInfo.professor}</br>
+            Location: ${recitationInfo.location}</br>
+            Times: ${recitationInfo.time}</br>
+            `;
+        // add lecture elements to classInfo
+        recitationCell.appendChild(recitationCellP);
+        }
+
+    // add buttons(create and appendChild)
+    var buttonDiv = document.createElement("div");
+    var b1 = document.createElement("button");
+    buttonDiv.appendChild(b1);
+    b1.innerHTML = "See Grades";
+
+    var b2 = document.createElement("button");
+    buttonDiv.appendChild(b2);
+    b2.innerHTML = "Change Section";
+    // make "Change Section" navigate to class details page
+    b2.addEventListener('click', function() {
+        localStorage.setItem('selected-class', JSON.stringify(course))
+        location.href = "class_details.html";
+    });
+
+    var b3 = document.createElement("button");
+    b3.innerHTML = "Drop Class";
+    buttonDiv.appendChild(b3);
+    // make "Drop Class" drop the class
+    b3.addEventListener('click', function() {
+        var dropBool = confirm("Are you sure to you want to drop this class?");
+        if (dropBool) {
+            // open/parse user's classes and delete the course
+            var usersClasses = JSON.parse(localStorage.getItem('classes'));
+            delete usersClasses[courseId];
+            localStorage.setItem('classes',JSON.stringify(usersClasses));
+            alert(course.courseName + " has been successfully removed.");
+            location.href = "index.html";
+        };
+    });
+
+    // add mainTable/buttons to classInfo 
+    classInfo.appendChild(mainTable);
+    classInfo.appendChild(buttonDiv);
+}
+
+var scheduleTable = document.getElementById('schedule-table');
 
 // iterate through classes and add them to the schedule
-for (i = 0; i < userClasses.length; i++) {
-    // Get class
-    var classObj = userClasses[i];
-
-    // Create row + 2 cells for class entry
-    var newRow = scheduleTable.insertRow();
-    var nameCell = scheduleTable.insertCell();
-    var unitsCell = scheduleTable.insertCell();
-
-    // Create text objects to add to table
-    var nameCellText = document.createTextNode(classObj.courseName);
-    var unitsCellText = document.createTextNode(classObj.units + " (FCE: " + classObj.FCE +")");
-
-    // Add text objects to the table
-    nameCell.appendChild(nameCellText);
-    unitsCell.appendChild(unitsCellText);
-
-    // Add attribute (i.e. make row not selected)
-    newRow.setAttribute("aria-selected", "false");
+if (userClasses != null) {
+    for (i=0; i < Object.keys(userClasses).length; i++) {
+        var userClassesKey = Object.keys(userClasses)[i];
+        // Get class
+        var classObjJSON = userClasses[userClassesKey];
+        var classObj = JSON.parse(classObjJSON);
+        console.log("classObj:");
+        console.log(classObj);
+    
+        // Create row + 2 cells for class entry
+        var newRow = scheduleTable.insertRow(-1);
+        var nameCell = newRow.insertCell(0);
+        var infoCell = newRow.insertCell(1);
+    
+        // give row click highlighting
+        newRow.onclick = function(event) {
+            console.log(event.target.parentElement);
+            // clear selection of anything on the table
+            for (const row of scheduleTable.rows) {
+                row.setAttribute("aria-selected", "false");
+            }
+    
+            // make it selected
+            event.target.parentElement.setAttribute("aria-selected", "true")
+    
+            // change help box
+            updateHelpBox(event.target.innerHTML);
+        };
+    
+        // Add content to the row
+        nameCell.innerHTML = classObj.number + ": " + classObj.courseName;
+        infoCell.innerHTML = "More Info";
+    
+    
+        // Add attribute (i.e. make row not selected)
+        newRow.setAttribute("aria-selected", "false");
+    };
 }
-
-
-
-function AddClass(courseNum) {
-    const key = "c" + courseNum;
-    const classObj = classes[key];
-    if (classObj != null) {
-        userClasses.push(classObj);
-        localStorage.setItem("classes", JSON.stringify(userClasses));
-    }
-}
-
-console.log(localStorage)
 
 // index.js: Buttons
 document.getElementById('add-class-button').onclick = function() {
     location.href = "course_database.html"
 }
+
+document.getElementById('')
+
+// const createClickHandler = (row) => {
+//     return () => {
+//       const [cell] = row.getElementsByTagName("td");
+//       const id = cell.innerHTML;
+//       console.log(id);
+//     };
+//   };
+  
+// for (const currentRow of scheduleTable.rows) {
+
+//     currentRow.onclick = createClickHandler(currentRow);
+//   }
+
+// scheduleTable.addEventListener('click', function(event) {
+//     for (const row of scheduleTable.rows) {
+//         console.log("event.target:");
+//         console.log(event.target);
+//         console.log(event.target.row)
+//     }
+// })
+// for (const currRow of scheduleTable.rows) {
+//     currRow.addEventListener('click', function(event) {
+
+//     });
+// }
