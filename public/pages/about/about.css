@@ -1,0 +1,20 @@
+#content a {
+    color: #800000;
+    font-weight: bold;
+    text-decoration: none;
+}
+#clubs button {
+    width: 10rem;
+    height: 10rem;
+    border: 0.1rem solid black;
+    background-color: white;
+    border-radius: 50%;
+}
+
+#clubs a {
+    text-decoration: none;
+}
+
+#me {
+    margin-bottom: 2rem;
+}

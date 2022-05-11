@@ -1,0 +1,54 @@
+#ribbon table {
+    margin: 1rem;
+    max-width: 25rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Project-TOC {
+    position: fixed;
+    opacity: 0;
+    left: 2.5rem;
+    top: 7.5rem;
+    width: 8rem;
+    max-height: 70vh;
+    margin-bottom: 10px;
+    border-radius: 0.5rem;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+#Project-TOC .list-group-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem; 
+}
+#Project-TOC > .active {
+    border: none;
+}
+/* header stuff */
+@media (min-width: 768px) {
+    .section-header {
+        background-color: rgba(0, 0, 0, 0);
+        padding: 0.25rem;
+    }
+    #body-content {
+        margin-left: 9rem;
+    }
+}
+@media (max-width: 767.98px) {
+    /* .section-header {
+        background-color: white;
+        position: sticky;
+        padding: 0.25rem;
+        top: 4rem;
+    } */
+    #body-content {
+        margin-left: 2rem;
+    }
+
+}
+
+#skills {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem; 
+}
+
